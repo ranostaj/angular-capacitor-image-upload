@@ -22,9 +22,7 @@ import { Camera, CameraResultType, CameraSource } from '@capacitor/camera';
         <div *ngIf="!imageUrl" class="upload-placeholder">
           
           <div class="button-group">
-            <button (click)="fileInput.click()" class="upload-button">
-              Upload Image
-            </button>
+           
             <button (click)="takePicture()" class="camera-button">
               Take Photo
             </button>
@@ -53,8 +51,8 @@ import { Camera, CameraResultType, CameraSource } from '@capacitor/camera';
     }
 
     .upload-box {
-      width: 300px;
-      height: 300px;
+      width: 200px;
+      height: 200px;
       border: 2px dashed #ccc;
       border-radius: 8px;
       display: flex;
@@ -123,9 +121,10 @@ export class ImageUploadComponent {
     try {
       const image = await Camera.getPhoto({
         quality: 90,
-        allowEditing: true,
+        allowEditing: false,
+        saveToGallery: false, 
         resultType: CameraResultType.DataUrl,
-        source: CameraSource.Camera
+        source: CameraSource.Camera,
       });
       
       this.imageUrl = image.dataUrl || null;
