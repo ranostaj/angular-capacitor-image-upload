@@ -20,7 +20,7 @@ import { Camera, CameraResultType, CameraSource } from '@capacitor/camera';
                class="file-input">
         
         <div *ngIf="!imageUrl" class="upload-placeholder">
-          <p>Drop image here or choose an option:</p>
+          
           <div class="button-group">
             <button (click)="fileInput.click()" class="upload-button">
               Upload Image
