@@ -2,6 +2,7 @@ import { Component } from '@angular/core';
 import { bootstrapApplication } from '@angular/platform-browser';
 import { ImageUploadComponent } from './app/image-upload/image-upload.component';
 import { provideAnimations } from '@angular/platform-browser/animations';
+import { defineCustomElements } from '@ionic/pwa-elements/loader';
 
 @Component({
   selector: 'app-root',
@@ -30,6 +31,7 @@ import { provideAnimations } from '@angular/platform-browser/animations';
 export class App {
 }
 
+defineCustomElements(window);
 bootstrapApplication(App, {
   providers: [
     provideAnimations()

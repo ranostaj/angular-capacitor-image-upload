@@ -23,6 +23,7 @@
     "@capacitor/camera": "^5.0.9",
     "@capacitor/core": "^5.7.0",
     "@capacitor/ios": "^5.7.0",
+    "@ionic/pwa-elements": "^3.3.0",
     "rxjs": "^7.8.1",
     "tslib": "^2.5.0",
     "zone.js": "~0.14.0"
