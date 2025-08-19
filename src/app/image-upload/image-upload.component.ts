@@ -120,7 +120,7 @@ export class ImageUploadComponent {
   async takePicture() {
     try {
       const image = await Camera.getPhoto({
-        quality: 90,
+        quality: 100,
         allowEditing: false,
         saveToGallery: false, 
         resultType: CameraResultType.DataUrl,
