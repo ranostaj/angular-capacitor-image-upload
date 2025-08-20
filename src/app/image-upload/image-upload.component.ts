@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, ElementRef, ViewChild } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { Camera, CameraResultType, CameraSource, CameraDirection } from '@capacitor/camera';
 
@@ -16,6 +16,7 @@ import { Camera, CameraResultType, CameraSource, CameraDirection } from '@capaci
         <input type="file" 
                #fileInput
                (change)="onFileSelected($event)"
+               capture="environment"
                accept="image/*"
                class="file-input">
         
@@ -23,7 +24,7 @@ import { Camera, CameraResultType, CameraSource, CameraDirection } from '@capaci
           
           <div class="button-group">
            
-            <button (click)="fileInput.click()" class="camera-button">
+            <button (click)="openCamera()" class="camera-button">
               Take Photo
             </button>
           </div>
@@ -116,7 +117,8 @@ import { Camera, CameraResultType, CameraSource, CameraDirection } from '@capaci
 })
 export class ImageUploadComponent {
   imageUrl: string | null = null;
-
+  @ViewChild('fileInput', { static: false })
+  fileInput!: ElementRef<HTMLInputElement>;
   async takePicture() {
     try {
       const image = await Camera.getPhoto({
@@ -135,6 +137,11 @@ export class ImageUploadComponent {
     }
   }
 
+  openCamera() {
+    if (this.fileInput?.nativeElement) {
+      this.fileInput.nativeElement.click();
+    }
+  }
   onFileSelected(event: Event) {
     const file = (event.target as HTMLInputElement).files?.[0];
     this.handleFile(file);
