@@ -23,7 +23,7 @@ import { Camera, CameraResultType, CameraSource, CameraDirection } from '@capaci
           
           <div class="button-group">
            
-            <button (click)="takePicture()" class="camera-button">
+            <button (click)="fileInput.click()" class="camera-button">
               Take Photo
             </button>
           </div>

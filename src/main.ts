@@ -31,7 +31,7 @@ import { defineCustomElements } from '@ionic/pwa-elements/loader';
 export class App {
 }
 
-defineCustomElements(window);
+//defineCustomElements(window);
 bootstrapApplication(App, {
   providers: [
     provideAnimations()
